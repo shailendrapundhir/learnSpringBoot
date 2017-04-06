@@ -1,23 +1,20 @@
 package com.conservesoftwares.model;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Min;
 import java.net.URL;
 
 /**
  * Created by shailendra on 7/4/17.
  */
 
+@Data
 public class MinimalProfile {
-    private final String username;
-    private final Name name;
-    private final URL thumbnail;
-
-    public MinimalProfile(String username, Name name, URL thumbnail) {
-        this.username = username;
-        this.name = name;
-        this.thumbnail = thumbnail;
-    }
+    private String username;
+    private Name name;
+    private URL thumbnail;
 
     public MinimalProfile(Profile profile) {
         this.username = profile.getLogin().getUsername();
@@ -35,5 +32,17 @@ public class MinimalProfile {
 
     public URL getThumbnail() {
         return thumbnail;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    public void setThumbnail(URL thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }
